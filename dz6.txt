@@ -1,0 +1,25 @@
+result = []
+
+def divider(a, b):
+    if a < b:
+        raise ValueError
+    if b > 100:
+        raise IndexError
+    return a / b
+
+data = {10: 2, 2: 5, "123": 4, 18: 0, 8: 4}
+
+for key in data:
+    try:
+        res = divider(key, data[key])
+        result.append(res)
+    except ValueError:
+        print(f"ValueError: {key} < {data[key]}")
+    except IndexError:
+        print(f"IndexError: {data[key]} > 100")
+    except ZeroDivisionError:
+        print(f"ZeroDivisionError: division by zero for key {key}")
+    except TypeError:
+        print(f"TypeError: invalid type for key {key}")
+
+print(result)
